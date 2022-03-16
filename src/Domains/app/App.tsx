@@ -1,15 +1,15 @@
 import React from "react";
 import logo from "Shared/icons/logo.svg";
-import "./App.css";
+import * as S from "./App.styles";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Robodex</p>
-      </header>
-    </div>
+    <S.App>
+      <S.Header>
+        <S.Logo src={logo} alt="Robodex logo" />
+        <S.HeaderText>Robodex</S.HeaderText>
+      </S.Header>
+    </S.App>
   );
 }
 
