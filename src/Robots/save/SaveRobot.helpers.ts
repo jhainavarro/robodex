@@ -1,5 +1,5 @@
+import { IRobot } from "../robots.models";
 import * as yup from "yup";
-import { IRobot } from "./models/robot.models";
 
 export type SaveRobotFormData = {
   name: string;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { fetchRobot } from "../robots.api";
 import SaveRobot from "./SaveRobot";
-import { fetchRobot } from "./api/robots.api";
 
 export default function EditRobot() {
   const params = useParams();

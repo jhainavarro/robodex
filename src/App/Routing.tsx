@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import App from "./App";
-import { RobotsList, Robot, SaveRobot, EditRobot } from "Domains/robots";
+import { RobotsList, Robot, SaveRobot, EditRobot } from "Robots";
 
 export default function Routing() {
   return (

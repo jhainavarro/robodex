@@ -1,21 +1,10 @@
 import React from "react";
-import { Outlet, useMatch } from "react-router-dom";
-import { fetchRobots } from "./api/robots.api";
-import { IRobot } from "./models/robot.models";
+import { fetchRobots } from "../robots.api";
+import { IRobot } from "../robots.models";
 import * as S from "./RobotsList.styles";
 
 export default function RobotsList() {
   const robots: IRobot[] = fetchRobots();
-  const isViewingARobot = useMatch("/:guid");
-
-  if (isViewingARobot) {
-    return (
-      <>
-        <S.Back to="/">⬅ Back to list</S.Back>
-        <Outlet />
-      </>
-    );
-  }
 
   if (robots.length > 0) {
     return (

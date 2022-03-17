@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { deleteRobot, fetchRobot } from "./api/robots.api";
+import { deleteRobot, fetchRobot } from "../robots.api";
 import * as S from "./Robot.styles";
 
 export default function Robot() {

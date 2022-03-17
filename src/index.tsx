@@ -1,4 +1,4 @@
-import Routing from "Domains/app/Routing";
+import Routing from "App/Routing";
 import React from "react";
 import ReactDOM from "react-dom";
 import * as S from "./index.styles";

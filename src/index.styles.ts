@@ -20,8 +20,6 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     overflow: hidden;
-    
-    /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
     font-family: "Exo 2";
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

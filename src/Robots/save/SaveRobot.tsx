@@ -7,8 +7,8 @@ import {
   schema,
 } from "./SaveRobot.helpers";
 import * as S from "./SaveRobot.styles";
-import { saveRobot } from "./api/robots.api";
-import { IRobot } from "./models/robot.models";
+import { saveRobot } from "../robots.api";
+import { IRobot } from "../robots.models";
 
 interface SaveRobotProps {
   robot?: IRobot;

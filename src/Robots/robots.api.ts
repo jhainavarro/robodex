@@ -1,4 +1,4 @@
-import { IRobot } from "../models/robot.models";
+import { IRobot } from "./robots.models";
 
 export const ROBOTS_KEY = "robots";
 
