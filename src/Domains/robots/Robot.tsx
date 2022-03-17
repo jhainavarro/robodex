@@ -24,6 +24,8 @@ export default function Robot() {
         <S.Name>Hi! My name is {robot.name}</S.Name>
         <S.Purpose>And I am built to {robot.purpose}</S.Purpose>
 
+        <S.Edit to={`/robots/edit/${robot.guid}`}>Edit bot</S.Edit>
+
         {/* TODO: Confirmation */}
         <S.Delete onClick={() => handleDelete(robot.guid)}>Delete bot</S.Delete>
       </S.Container>

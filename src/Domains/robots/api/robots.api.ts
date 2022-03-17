@@ -41,6 +41,30 @@ export function addRobot(robot: AddRobotInput): IRobot {
   return newRobot;
 }
 
+type EditRobotInput = IRobot;
+
+export function editRobot(robot: EditRobotInput): IRobot {
+  const list = fetchRobots();
+  const index = list.findIndex((r) => r.guid === robot.guid);
+
+  if (index === -1) {
+    throw new Error(`Unable to edit robot with guid: ${robot.guid}`);
+  }
+
+  list[index] = robot;
+  window.localStorage.setItem(ROBOTS_KEY, JSON.stringify(list));
+
+  return robot;
+}
+
+export function saveRobot(robot: AddRobotInput | EditRobotInput): IRobot {
+  if ("guid" in robot) {
+    return editRobot(robot);
+  }
+
+  return addRobot(robot);
+}
+
 export function deleteRobot(guid: string): void {
   const list = fetchRobots();
   const filtered = list.filter((robot) => robot.guid !== guid);
