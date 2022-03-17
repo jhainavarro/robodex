@@ -8,7 +8,17 @@ export default function RobotsList() {
   const robots: IRobot[] = fetchRobots();
   const match = useMatch("/robots/:guid");
 
-  if (!match) {
+  // We are viewing a robot
+  if (match) {
+    return (
+      <>
+        <S.Back to="/robots">⬅ Back to list</S.Back>
+        <Outlet />
+      </>
+    );
+  }
+
+  if (robots.length > 0) {
     return (
       <>
         {robots.map((robot) => (
@@ -20,10 +30,6 @@ export default function RobotsList() {
     );
   }
 
-  return (
-    <>
-      <S.Back to="/robots">⬅ Back to list</S.Back>
-      <Outlet />
-    </>
-  );
+  // TODO: Button to add a robot
+  return <S.EmptyText>No robots yet. Would you like to add one?</S.EmptyText>;
 }

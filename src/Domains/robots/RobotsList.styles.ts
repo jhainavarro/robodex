@@ -26,3 +26,5 @@ export const Back = styled(Link)`
     background-color: ${rgba("#000000", 0.05)};
   }
 `;
+
+export const EmptyText = styled.p``;
