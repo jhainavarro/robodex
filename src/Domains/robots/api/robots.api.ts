@@ -40,3 +40,10 @@ export function addRobot(robot: AddRobotInput): IRobot {
 
   return newRobot;
 }
+
+export function deleteRobot(guid: string): void {
+  const list = fetchRobots();
+  const filtered = list.filter((robot) => robot.guid !== guid);
+
+  window.localStorage.setItem(ROBOTS_KEY, JSON.stringify(filtered));
+}
