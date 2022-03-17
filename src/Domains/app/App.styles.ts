@@ -44,7 +44,6 @@ export const Link = styled(NavLink)`
   padding: 12px;
   border-radius: 4px;
   color: #ffffff;
-  text-decoration: none;
 
   :hover {
     color: #b2dfdb;

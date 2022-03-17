@@ -24,7 +24,6 @@ export const LinkButton = styled(Link)`
   color: #1d2030;
   font-size: ${rem("20px")};
   font-weight: 600;
-  text-decoration: none;
 
   box-shadow: 0 1px 2px ${rgba("#000000", 0.15)};
   transition: box-shadow 0.2s ease-in-out;
