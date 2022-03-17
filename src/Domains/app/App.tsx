@@ -6,15 +6,10 @@ import * as S from "./App.styles";
 export default function App() {
   return (
     <S.App>
-      <S.Sidebar>
+      <S.Header>
         <S.Logo src={logo} alt="Robodex logo" />
         <S.LogoName>Robodex</S.LogoName>
-
-        <S.Nav>
-          <S.Link to="/">Home</S.Link>
-          <S.Link to="/robots">Robots</S.Link>
-        </S.Nav>
-      </S.Sidebar>
+      </S.Header>
 
       <S.Content>
         <Outlet />

@@ -3,32 +3,41 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components/macro";
 
 export const App = styled.div`
-  display: grid;
-  grid-template-areas: "Sidebar Content";
-  grid-template-columns: clamp(250px, 20%, 350px) auto;
   height: 100vh;
+  position: relative;
+  display: flex;
+  overflow: auto;
 `;
 
-export const Sidebar = styled.div`
-  grid-area: Sidebar;
-  padding: 0 8px;
+export const Header = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  background-color: #282c34;
+  align-items: center;
+  padding: 8px;
+
+  background-color: #34495e;
+
+  @supports (backdrop-filter: blur(24px)) {
+    backdrop-filter: blur(24px);
+    background-color: ${rgba("#34495e", 0.5)};
+  }
 `;
 
 export const Content = styled.div`
-  grid-area: Content;
-  padding: 32px;
+  padding: 64px 32px 32px 32px;
+  flex-grow: 1;
+  overflow: auto;
 `;
 
 export const Logo = styled.img`
-  height: 100px;
+  height: 48px;
   pointer-events: none;
 `;
 
 export const LogoName = styled.p`
-  margin: 0 0 32px 0;
+  margin: 0 0 0 12px;
   color: #ffffff;
   font-size: ${rem("28px")};
   font-weight: 700;
@@ -36,8 +45,6 @@ export const LogoName = styled.p`
   text-align: center;
   text-transform: uppercase;
 `;
-
-export const Nav = styled.nav``;
 
 export const Link = styled(NavLink)`
   width: 100%;

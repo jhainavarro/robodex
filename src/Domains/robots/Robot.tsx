@@ -9,7 +9,7 @@ export default function Robot() {
 
   function handleDelete(guid: string): void {
     deleteRobot(guid); // TODO: Success, loading, error states
-    navigate("/robots");
+    navigate("/");
   }
 
   if (!params.guid) {
@@ -24,7 +24,7 @@ export default function Robot() {
         <S.Name>Hi! My name is {robot.name}</S.Name>
         <S.Purpose>And I am built to {robot.purpose}</S.Purpose>
 
-        <S.Edit to={`/robots/edit/${robot.guid}`}>Edit bot</S.Edit>
+        <S.Edit to={`/edit/${robot.guid}`}>Edit bot</S.Edit>
 
         {/* TODO: Confirmation */}
         <S.Delete onClick={() => handleDelete(robot.guid)}>Delete bot</S.Delete>

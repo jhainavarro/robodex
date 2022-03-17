@@ -6,12 +6,12 @@ import * as S from "./RobotsList.styles";
 
 export default function RobotsList() {
   const robots: IRobot[] = fetchRobots();
-  const isViewingARobot = useMatch("/robots/:guid");
+  const isViewingARobot = useMatch("/:guid");
 
   if (isViewingARobot) {
     return (
       <>
-        <S.Back to="/robots">⬅ Back to list</S.Back>
+        <S.Back to="/">⬅ Back to list</S.Back>
         <Outlet />
       </>
     );
@@ -22,11 +22,11 @@ export default function RobotsList() {
       <>
         {robots.map((robot) => (
           <React.Fragment key={robot.guid}>
-            <S.Name to={`/robots/${robot.guid}`}>{robot.name}</S.Name>
+            <S.Name to={`/${robot.guid}`}>{robot.name}</S.Name>
           </React.Fragment>
         ))}
 
-        <S.AddButton to="/robots/add">+ Add another robot</S.AddButton>
+        <S.AddButton to="/add">+ Add another robot</S.AddButton>
       </>
     );
   }
@@ -35,7 +35,7 @@ export default function RobotsList() {
   return (
     <S.EmptyText>
       No robots yet. Would you like to
-      <S.AddLink to="/robots/add">add one</S.AddLink>?
+      <S.AddLink to="/add">add one</S.AddLink>?
     </S.EmptyText>
   );
 }
