@@ -5,7 +5,7 @@ import styled from "styled-components/macro";
 export const App = styled.div`
   display: grid;
   grid-template-areas: "Sidebar Content";
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: clamp(250px, 20%, 350px) auto;
   height: 100vh;
 `;
 
