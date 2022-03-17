@@ -1,5 +1,6 @@
-import { rem } from "polished";
+import { text } from "Shared/components/utils/mixins";
 import styled from "styled-components/macro";
+import * as COLORS from "Shared/components/utils/colors";
 
 export const Form = styled.form`
   display: flex;
@@ -9,17 +10,17 @@ export const Form = styled.form`
 
 export const Label = styled.label`
   margin: 4px;
-  font-size: ${rem("12px")};
-  font-weight: 600;
   text-transform: uppercase;
+
+  ${text("xsmall", 600)};
 `;
 
 export const Input = styled.input``;
 
 export const Error = styled.p`
   margin: 8px 0;
-  color: #da4139;
-  font-size: ${rem("12px")};
+
+  ${text("xsmall", 400, COLORS.ERROR)};
 `;
 
 export const Save = styled.button`
@@ -30,5 +31,5 @@ export const Reset = styled.button``;
 
 export const Result = styled.p<{ success?: boolean }>`
   margin: 20px 0 0 0;
-  color: ${(props) => (props.success ? "#3eb246" : "#da4139")};
+  color: ${(props) => (props.success ? COLORS.SUCCESS : COLORS.SUCCESS)};
 `;

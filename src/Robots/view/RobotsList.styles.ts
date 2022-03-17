@@ -1,27 +1,17 @@
-import { rem, rgba } from "polished";
+import { rgba } from "polished";
 import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
+import * as COLORS from "Shared/components/utils/colors";
+import { text } from "Shared/components/utils/mixins";
 
 export const Name = styled(Link)`
   width: 100%;
   padding: 12px;
-  color: #02091a;
+
+  ${text("medium", 500, COLORS.TEXT)};
 
   :hover {
     text-decoration: underline;
-  }
-`;
-
-export const Back = styled(Link)`
-  padding: 8px 16px;
-  margin-bottom: 24px;
-  border-radius: 8px;
-  border: 1px solid ${rgba("#000000", 0.4)};
-  color: #02091a;
-  font-size: ${rem("11px")};
-
-  :hover {
-    background-color: ${rgba("#000000", 0.05)};
   }
 `;
 
@@ -31,10 +21,9 @@ export const AddButton = styled(Link)`
   padding: 8px 12px;
   margin-top: 28px;
   border-radius: 4px;
-  background: linear-gradient(170deg, #abebda 35%, #11abd9 100%);
-  color: #1d2030;
-  font-size: ${rem("14px")};
-  font-weight: 500;
+  background: ${`linear-gradient(170deg, ${COLORS.BLUE_LIGHT} 35%, ${COLORS.BLUE} 100%)`};
+
+  ${text("small", 500, COLORS.TEXT_LIGHT)};
 
   box-shadow: 0 1px 2px ${rgba("#000000", 0.15)};
   transition: box-shadow 0.2s ease-in-out;

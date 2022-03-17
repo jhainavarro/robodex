@@ -1,6 +1,6 @@
-import { rem, rgba } from "polished";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components/macro";
+import * as COLORS from "Shared/components/utils/colors";
+import { glass, text } from "Shared/components/utils/mixins";
 
 export const App = styled.div`
   height: 100vh;
@@ -17,12 +17,7 @@ export const Header = styled.div`
   align-items: center;
   padding: 8px;
 
-  background-color: #34495e;
-
-  @supports (backdrop-filter: blur(24px)) {
-    backdrop-filter: blur(24px);
-    background-color: ${rgba("#34495e", 0.5)};
-  }
+  ${glass(COLORS.HEADER_BG_COLOR, 0.5, "24px")};
 `;
 
 export const Content = styled.div`
@@ -38,22 +33,9 @@ export const Logo = styled.img`
 
 export const LogoName = styled.p`
   margin: 0 0 0 12px;
-  color: #ffffff;
-  font-size: ${rem("28px")};
-  font-weight: 700;
   letter-spacing: 0.08rem;
   text-align: center;
   text-transform: uppercase;
-`;
 
-export const Link = styled(NavLink)`
-  width: 100%;
-  padding: 12px;
-  border-radius: 4px;
-  color: #ffffff;
-
-  :hover {
-    color: #b2dfdb;
-    background-color: ${rgba("#02091a", 0.8)};
-  }
+  ${text("xlarge", 700, COLORS.LOGO_NAME_LIGHT)};
 `;
