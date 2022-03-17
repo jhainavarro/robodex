@@ -1,8 +1,9 @@
 import { IRobot } from "../models/robot.models";
 
-// TODO: Get from persisted data layer
+export const ROBOTS_KEY = "robots";
+
 export function fetchRobots(): IRobot[] {
-  const stored = window.localStorage.getItem("robots");
+  const stored = window.localStorage.getItem(ROBOTS_KEY);
   let robots: IRobot[] = [];
 
   if (stored) {
@@ -12,7 +13,6 @@ export function fetchRobots(): IRobot[] {
   return robots;
 }
 
-// TODO: Get from persisted data layer
 export function fetchRobot(guid: string): IRobot {
   const robot = fetchRobots().find((robot) => robot.guid === guid);
 
@@ -21,4 +21,22 @@ export function fetchRobot(guid: string): IRobot {
   }
 
   return robot;
+}
+
+// Used the base `IRobot` interface for simplicity
+// If we want to be more flexible, we can consider
+// enumerating the fields we want to accept as input
+type AddRobotInput = Omit<IRobot, "guid">;
+
+export function addRobot(robot: AddRobotInput): IRobot {
+  const list = fetchRobots();
+  const newRobot = {
+    guid: `${Date.now()}`,
+    ...robot,
+  };
+
+  list.push(newRobot);
+  window.localStorage.setItem(ROBOTS_KEY, JSON.stringify(list));
+
+  return newRobot;
 }
