@@ -11,12 +11,14 @@ import * as S from "./SaveRobot.styles";
 import { saveRobot } from "../robots.api";
 import { IRobot } from "../robots.models";
 import { ReactComponent as RefreshIcon } from "Shared/icons/refresh.svg";
+import { useNavigate } from "react-router-dom";
 
 interface SaveRobotProps {
   robot?: IRobot;
 }
 
 export default function SaveRobot({ robot }: SaveRobotProps) {
+  const navigate = useNavigate();
   const [success, setSuccess] = useState<boolean | undefined>();
   const {
     register,
@@ -44,6 +46,7 @@ export default function SaveRobot({ robot }: SaveRobotProps) {
   function handleReset(): void {
     reset();
     setSuccess(undefined);
+    setValue("avatarUrl", getRandomAvatar());
   }
 
   return (
@@ -75,10 +78,23 @@ export default function SaveRobot({ robot }: SaveRobotProps) {
       />
 
       <S.ActionButtons>
-        <S.Save type="submit">Save</S.Save>
-        <S.Reset type="button" onClick={handleReset}>
-          Discard changes
-        </S.Reset>
+        <S.Primary type="submit">Save</S.Primary>
+
+        {!robot?.guid && (
+          <S.Secondary onClick={handleReset}>
+            {success ? "Make another" : "Discard changes"}
+          </S.Secondary>
+        )}
+
+        {robot?.guid && (
+          <S.Secondary onClick={() => navigate(`/${robot.guid}`)}>
+            Back
+          </S.Secondary>
+        )}
+
+        {success && (
+          <S.Secondary onClick={() => navigate("/")}>Back to list</S.Secondary>
+        )}
       </S.ActionButtons>
 
       <S.Result success={success}>

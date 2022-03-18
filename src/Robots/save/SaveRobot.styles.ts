@@ -31,6 +31,7 @@ export const Refresh = styled(Button)`
   position: absolute;
   bottom: 0;
   right: 0;
+  min-width: 24px;
   width: 24px;
   height: 24px;
   padding: 4px;
@@ -51,11 +52,11 @@ export const ActionButtons = styled.div`
   flex-direction: column;
 `;
 
-export const Save = styled(Button)`
+export const Primary = styled(Button)`
   margin-top: 20px;
 `;
 
-export const Reset = styled(Button).attrs(() => ({
+export const Secondary = styled(Button).attrs(() => ({
   bgColor: COLORS.GRAY_XLIGHT,
 }))`
   margin-top: 8px;

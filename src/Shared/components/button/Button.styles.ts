@@ -6,6 +6,7 @@ import { ButtonProps } from "./Button";
 const baseColor = `linear-gradient(282deg, ${COLORS.BLUE} 13.22%, ${COLORS.BLUE_LIGHT} 100%)`;
 
 export const Button = styled.button<ButtonProps>`
+  min-width: 116px;
   padding: 8px 16px;
   color: ${(props) => props.textColor ?? COLORS.TEXT_XLIGHT};
   font-weight: 600;
