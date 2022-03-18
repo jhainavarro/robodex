@@ -1,6 +1,7 @@
 import styled from "styled-components/macro";
 import * as COLORS from "Shared/components/utils/colors";
 import { glass, text } from "Shared/components/utils/mixins";
+import { Link } from "react-router-dom";
 
 export const App = styled.div`
   height: 100vh;
@@ -31,7 +32,7 @@ export const Logo = styled.img`
   pointer-events: none;
 `;
 
-export const LogoName = styled.p`
+export const LogoName = styled(Link)`
   margin: 0 0 0 12px;
   letter-spacing: 0.08rem;
   text-align: center;

@@ -8,7 +8,7 @@ export default function App() {
     <S.App>
       <S.Header>
         <S.Logo src={logo} alt="Robodex logo" />
-        <S.LogoName>Robodex</S.LogoName>
+        <S.LogoName to="/">Robodex</S.LogoName>
       </S.Header>
 
       <S.Content>
