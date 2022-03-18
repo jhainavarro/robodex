@@ -1,6 +1,6 @@
 import styled from "styled-components/macro";
 import * as COLORS from "Shared/components/utils/colors";
-import { glass, text } from "Shared/components/utils/mixins";
+import { glass, hideScrollbars, text } from "Shared/components/utils/mixins";
 import { Link } from "react-router-dom";
 
 export const App = styled.div`
@@ -42,6 +42,8 @@ export const Content = styled.div`
   padding: 96px 32px 32px 32px;
   flex-grow: 1;
   overflow: auto;
+
+  ${hideScrollbars()}
 `;
 
 export const Logo = styled(Link)`

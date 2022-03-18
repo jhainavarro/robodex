@@ -39,3 +39,18 @@ export function glass(bgColor: string, opacity: number, blur: string) {
     }
   `;
 }
+
+/**
+ * Hides scrollbars from the UI but still keep scrollable behavior
+ */
+export function hideScrollbars() {
+  return css`
+    -ms-overflow-style: none; /* IE 10+ */
+    scrollbar-width: none; /* Firefox */
+
+    /* Webkit */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  `;
+}
