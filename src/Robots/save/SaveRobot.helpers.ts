@@ -4,6 +4,7 @@ import * as yup from "yup";
 export type SaveRobotFormData = {
   name: string;
   purpose: string;
+  avatarUrl: string;
 };
 
 export const schema = yup.object().shape({
@@ -15,5 +16,10 @@ export function getDefaultFormValues(robot?: IRobot): SaveRobotFormData {
   return {
     name: robot?.name ?? "",
     purpose: robot?.purpose ?? "",
+    avatarUrl: robot?.avatarUrl ?? getRandomAvatar(),
   };
+}
+
+export function getRandomAvatar(seed?: string): string {
+  return `https://robohash.org/${seed ?? Date.now()}`;
 }

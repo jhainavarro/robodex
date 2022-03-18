@@ -21,6 +21,7 @@ export default function Robot() {
 
     return (
       <S.Container>
+        <S.Avatar src={robot.avatarUrl} alt={`Avatar of ${robot.name}`} />
         <S.Name>Hi! My name is {robot.name}</S.Name>
         <S.Purpose>And I am built to {robot.purpose}</S.Purpose>
 

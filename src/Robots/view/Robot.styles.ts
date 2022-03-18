@@ -6,6 +6,10 @@ import * as COLORS from "Shared/components/utils/colors";
 
 export const Container = styled.div``;
 
+export const Avatar = styled.img`
+  height: 150px;
+`;
+
 export const Name = styled.p`
   font-size: ${rem("20px")};
   font-weight: 600;

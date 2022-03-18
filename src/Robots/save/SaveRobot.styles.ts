@@ -17,6 +17,18 @@ export const Label = styled.label`
 
 export const Input = styled.input``;
 
+export const Avatar = styled.img`
+  height: 150px;
+`;
+
+export const Refresh = styled.button`
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+`;
+
 export const Error = styled.p`
   margin: 8px 0;
 
