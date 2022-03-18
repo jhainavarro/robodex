@@ -4,6 +4,20 @@ Catalog for your robots!
 
 Hands-on exercise built with React and Styled Components. No UI kits added for an extra challenge :P Great starter project when trying new tech stacks.
 
+---
+
+## Sample Screens
+
+![Robodex-view](https://ibb.co/f1nLnhq)
+
+![Robodex-add](https://ibb.co/VWmTfmD)
+
+![Robodex-view-one](https://ibb.co/wgmYkb6)
+
+![Robodex-edit](https://ibb.co/vsSxjc6)
+
+---
+
 ## Setup
 
 **To avoid conflicts, please use `yarn` as your package manager.**
