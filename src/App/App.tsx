@@ -7,8 +7,12 @@ export default function App() {
   return (
     <S.App>
       <S.Header>
-        <S.Logo src={logo} alt="Robodex logo" />
-        <S.LogoName to="/">Robodex</S.LogoName>
+        <S.Logo to="/">
+          <S.LogoImg src={logo} alt="Robodex logo" />
+          <S.LogoName>Robodex</S.LogoName>
+        </S.Logo>
+
+        <S.AddLink to="/add">+ Add a bot</S.AddLink>
       </S.Header>
 
       <S.Content>

@@ -9,6 +9,7 @@ export const Catalog = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 1.5em;
+  margin: 0 auto;
 `;
 
 export const CardHeader = styled.div`
@@ -52,26 +53,6 @@ export const Card = styled(Link)`
     ${Avatar} {
       transform: scale(1.15);
     }
-  }
-`;
-
-export const AddButton = styled(Link)`
-  padding: 12px 16px;
-  margin-top: 28px;
-  border-radius: 4px;
-  background: ${`linear-gradient(170deg, ${COLORS.BLUE_LIGHT} 35%, ${COLORS.BLUE} 100%)`};
-
-  ${text("medium", 500, COLORS.TEXT_LIGHT)};
-
-  box-shadow: 0 1px 2px ${rgba("#000000", 0.15)};
-  transition: box-shadow 0.2s ease-in-out;
-
-  :hover {
-    box-shadow: 0 3px 8px ${rgba("#000000", 0.24)};
-  }
-
-  :active {
-    transform: scale(0.98);
   }
 `;
 
