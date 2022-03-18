@@ -28,11 +28,11 @@ export default function RobotsList() {
     );
   }
 
-  // TODO: Button to add a robot
   return (
-    <S.EmptyText>
-      No robots yet. Would you like to
-      <S.AddLink to="/add">add one</S.AddLink>?
-    </S.EmptyText>
+    <S.Empty>
+      <S.EmptyImg src="https://robohash.org/empty" alt="No robots yet" />
+      <S.EmptyText>No robots yet.</S.EmptyText>
+      <S.AddLink to="/add">Add one now!</S.AddLink>
+    </S.Empty>
   );
 }

@@ -55,8 +55,6 @@ export const Card = styled(Link)`
   }
 `;
 
-export const EmptyText = styled.p``;
-
 export const AddButton = styled(Link)`
   padding: 12px 16px;
   margin-top: 28px;
@@ -77,10 +75,48 @@ export const AddButton = styled(Link)`
   }
 `;
 
-export const AddLink = styled(Link)`
-  margin-left: 4px;
+export const Empty = styled.div`
+  width: min-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  text-align: center;
+`;
 
-  :hover {
-    text-decoration: underline;
+export const EmptyImg = styled.img`
+  height: 300px;
+  width: 300px;
+`;
+
+export const EmptyText = styled.p`
+  margin: 32px 0 16px;
+
+  ${text("medium", 500)};
+`;
+
+export const AddLink = styled(Link)`
+  ${text("large", 500, COLORS.BLUE)};
+  position: relative;
+  padding-bottom: 8px;
+
+  ::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: ${COLORS.BLUE};
+    opacity 1;
+    transform: scale(0);
+    transform-origin: center;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  :hover::after,
+  :focus::after {
+    transform: scale(1);
   }
 `;
