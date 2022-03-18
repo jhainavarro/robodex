@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { text } from "Shared/components/utils/mixins";
 import styled from "styled-components/macro";
 import * as COLORS from "Shared/components/utils/colors";
+import Button from "Shared/components/button";
 
 export const Container = styled.div``;
 
@@ -31,7 +32,7 @@ export const Edit = styled(Link)`
   }
 `;
 
-export const Delete = styled.button`
+export const Delete = styled(Button)`
   padding: 12px;
   border: none;
   background: none;

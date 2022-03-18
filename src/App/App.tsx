@@ -12,7 +12,7 @@ export default function App() {
           <S.LogoName>Robodex</S.LogoName>
         </S.Logo>
 
-        <S.AddLink to="/add">+ Add a bot</S.AddLink>
+        <S.AddButton to="/add">+ Add a bot</S.AddButton>
       </S.Header>
 
       <S.Content>

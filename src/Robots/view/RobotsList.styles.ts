@@ -46,7 +46,7 @@ export const Card = styled(Link)`
     box-shadow: 0 12px 24px ${rgba("#000000", 0.24)};
     background: ${`linear-gradient(
       150deg,
-      ${rgba(COLORS.BLUE_LIGHT, 0.1)} 35%,
+      ${rgba(COLORS.BLUE_XLIGHT, 0.1)} 35%,
       ${rgba(COLORS.BLUE, 0.3)} 100%
     )`};
 

@@ -2,7 +2,6 @@ import styled from "styled-components/macro";
 import * as COLORS from "Shared/components/utils/colors";
 import { glass, text } from "Shared/components/utils/mixins";
 import { Link } from "react-router-dom";
-import { rgba } from "polished";
 
 export const App = styled.div`
   height: 100vh;
@@ -26,13 +25,17 @@ export const Header = styled.div`
   ${glass(COLORS.HEADER_BG_COLOR, 0.5, "24px")};
 `;
 
-export const AddLink = styled(Link)`
+export const AddButton = styled(Link)`
   padding: 8px 16px;
   margin-right: 12px;
   border-radius: 4px;
-  background: ${`linear-gradient(170deg, ${COLORS.BLUE_LIGHT} 35%, ${COLORS.BLUE} 100%)`};
+  background: ${`linear-gradient(170deg, ${COLORS.BLUE_XLIGHT} 35%, ${COLORS.BLUE} 100%)`};
 
   ${text("medium", 600, COLORS.TEXT_LIGHT)};
+
+  :active {
+    transform: scale(0.98);
+  }
 `;
 
 export const Content = styled.div`

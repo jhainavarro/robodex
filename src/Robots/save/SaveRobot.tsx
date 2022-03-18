@@ -48,27 +48,38 @@ export default function SaveRobot({ robot }: SaveRobotProps) {
 
   return (
     <S.Form onSubmit={handleSubmit(onSubmit)}>
-      <S.Avatar src={watch("avatarUrl")} alt="Robot avatar" />
-      <S.Refresh
-        type="button"
-        onClick={() => setValue("avatarUrl", getRandomAvatar())}
-      >
-        <RefreshIcon />
-      </S.Refresh>
+      <S.Uploader>
+        <S.Avatar src={watch("avatarUrl")} alt="Robot avatar" />
+        <S.Refresh
+          type="button"
+          onClick={() => setValue("avatarUrl", getRandomAvatar())}
+        >
+          <RefreshIcon />
+        </S.Refresh>
+      </S.Uploader>
       <S.Input type="hidden" {...register("avatarUrl")} />
 
-      <S.Label htmlFor="name">My name is:</S.Label>
-      <S.Input {...register("name")} id="name" autoComplete="off" autoFocus />
-      {errors.name?.message && <S.Error>{errors.name.message}</S.Error>}
+      <S.Input
+        {...register("name")}
+        id="name"
+        autoFocus
+        label="Beep-boop! My name is:"
+        errorMessage={errors.name?.message}
+      />
 
-      <S.Label htmlFor="purpose">And I am built to:</S.Label>
-      <S.Input {...register("purpose")} id="purpose" autoComplete="off" />
-      {errors.purpose?.message && <S.Error>{errors.purpose.message}</S.Error>}
+      <S.Input
+        {...register("purpose")}
+        id="purpose"
+        label="And my purpose is:"
+        errorMessage={errors.purpose?.message}
+      />
 
-      <S.Save type="submit">Save</S.Save>
-      <S.Reset type="button" onClick={handleReset}>
-        Discard changes
-      </S.Reset>
+      <S.ActionButtons>
+        <S.Save type="submit">Save</S.Save>
+        <S.Reset type="button" onClick={handleReset}>
+          Discard changes
+        </S.Reset>
+      </S.ActionButtons>
 
       <S.Result success={success}>
         {success === true && "Successfully saved bot!"}
