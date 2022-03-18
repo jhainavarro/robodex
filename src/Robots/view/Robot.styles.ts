@@ -1,48 +1,61 @@
-import { rem, rgba } from "polished";
-import { Link } from "react-router-dom";
+import { rgba } from "polished";
 import { text } from "Shared/components/utils/mixins";
 import styled from "styled-components/macro";
 import * as COLORS from "Shared/components/utils/colors";
 import Button from "Shared/components/button";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 32px;
+  margin: 0 auto;
+  box-shadow: 0 12px 24px ${rgba("#000000", 0.24)};
+`;
 
 export const Avatar = styled.img`
   height: 150px;
 `;
 
-export const Name = styled.p`
-  font-size: ${rem("20px")};
-  font-weight: 600;
+export const Greeting = styled.p`
+  margin: 32px 0 24px;
+  ${text("medium", 500, COLORS.TEXT)};
+`;
 
+export const Name = styled.p`
   ${text("large", 600, COLORS.TEXT)};
 `;
 
-export const Purpose = styled.p``;
+export const Purpose = styled.p`
+  margin: 20px 0;
 
-export const Edit = styled(Link)`
-  padding: 12px;
-  border: none;
-  background: none;
-  color: ${COLORS.TEXT_LIGHT};
-  cursor: pointer;
-
-  :hover {
-    background-color: ${rgba(COLORS.TEXT_LIGHT, 0.1)};
-  }
+  ${text("medium", 500, COLORS.TEXT)};
 `;
 
-export const Delete = styled(Button)`
-  padding: 12px;
-  border: none;
-  background: none;
-  color: ${COLORS.RED};
-  cursor: pointer;
-
-  :hover {
-    background-color: ${rgba(COLORS.RED, 0.1)};
-  }
+export const GradientText = styled.span`
+  background: linear-gradient(90deg, #9c5ac8, #168ebc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 `;
+
+export const Actions = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 48px;
+`;
+
+export const Edit = styled(Button)``;
+
+export const Delete = styled(Button).attrs(() => ({
+  bgColor: "transparent",
+  textColor: COLORS.GRAY,
+}))``;
 
 export const NotFound = styled.p`
   font-style: italic;
