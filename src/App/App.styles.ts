@@ -17,12 +17,13 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   padding: 8px;
+  z-index: 2;
 
   ${glass(COLORS.HEADER_BG_COLOR, 0.5, "24px")};
 `;
 
 export const Content = styled.div`
-  padding: 64px 32px 32px 32px;
+  padding: 96px 32px 32px 32px;
   flex-grow: 1;
   overflow: auto;
 `;

@@ -9,11 +9,19 @@ export default function RobotsList() {
   if (robots.length > 0) {
     return (
       <>
-        {robots.map((robot) => (
-          <React.Fragment key={robot.guid}>
-            <S.Name to={`/${robot.guid}`}>{robot.name}</S.Name>
-          </React.Fragment>
-        ))}
+        <S.Catalog>
+          {robots.map((robot) => (
+            <S.Card key={robot.guid} to={`/${robot.guid}`}>
+              <S.CardHeader>
+                <S.Avatar
+                  src={robot.avatarUrl}
+                  alt={`Avatar of ${robot.name}`}
+                />
+              </S.CardHeader>
+              <S.Name>{robot.name}</S.Name>
+            </S.Card>
+          ))}
+        </S.Catalog>
 
         <S.AddButton to="/add">+ Add another robot</S.AddButton>
       </>
