@@ -8,13 +8,12 @@ Hands-on exercise built with React and Styled Components. No UI kits added for a
 
 ## Sample Screens
 
-![Robodex-view](https://i.ibb.co/vwQRQ7V/robodex-view.png)
-
-![Robodex-add](https://i.ibb.co/FbVzRVJ/robodex-add.png)
-
-![Robodex-view-one](https://i.ibb.co/XLRVQdJ/robodex-view-one.png)
-
-![Robodex-edit](https://i.ibb.co/3fnyCT9/robodex-edit.png)
+|            |                                                                    |
+| ---------- | ------------------------------------------------------------------ |
+| View list  | ![Robodex-view](https://i.ibb.co/vwQRQ7V/robodex-view.png)         |
+| Add a bot  | ![Robodex-add](https://i.ibb.co/qM5pT59/robodex-add.png)           |
+| View a bot | ![Robodex-view-one](https://i.ibb.co/XLRVQdJ/robodex-view-one.png) |
+| Edit a bot | ![Robodex-edit](https://i.ibb.co/3fnyCT9/robodex-edit.png)         |
 
 ---
 
