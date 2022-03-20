@@ -12,15 +12,15 @@ const PURPOSE_PREFIXES = [
 ];
 
 export function randomGreeting(): string {
-  return GREETINGS[randomNumber(0, GREETINGS.length)];
+  return sampleOne(GREETINGS);
 }
 
 export function randomPrefix(): string {
-  return PURPOSE_PREFIXES[randomNumber(0, PURPOSE_PREFIXES.length)];
+  return sampleOne(PURPOSE_PREFIXES);
 }
 
-function randomNumber(min: number, max: number): number {
-  const minimum = Math.ceil(min);
-  const maximum = Math.floor(max);
-  return Math.floor(Math.random() * (maximum - minimum) + minimum);
+function sampleOne<T>(list: T[]): T {
+  const i = Math.floor(Math.random() * list.length);
+
+  return list[i];
 }
