@@ -1,10 +1,10 @@
-import { rgba } from "polished";
 import { text } from "Shared/components/utils/mixins";
 import styled from "styled-components/macro";
 import * as COLORS from "Shared/components/utils/colors";
 import Button from "Shared/components/button";
+import Card from "Shared/components/card";
 
-export const Container = styled.div`
+export const Container = styled(Card)`
   width: 450px;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,6 @@ export const Container = styled.div`
   text-align: center;
   padding: 32px;
   margin: 0 auto;
-  box-shadow: 0 12px 24px ${rgba("#000000", 0.24)};
 `;
 
 export const Avatar = styled.img`

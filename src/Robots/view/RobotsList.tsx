@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { fetchRobots } from "../robots.api";
 import { IRobot } from "../robots.models";
 import * as S from "./RobotsList.styles";
@@ -10,11 +11,16 @@ export default function RobotsList() {
     return (
       <S.Catalog>
         {robots.map((robot) => (
-          <S.Card key={robot.guid} to={`/${robot.guid}`}>
-            <S.CardHeader>
-              <S.Avatar src={robot.avatarUrl} alt={`Avatar of ${robot.name}`} />
-            </S.CardHeader>
-            <S.Name>{robot.name}</S.Name>
+          <S.Card key={robot.guid}>
+            <Link to={`/${robot.guid}`}>
+              <S.CardHeader>
+                <S.Avatar
+                  src={robot.avatarUrl}
+                  alt={`Avatar of ${robot.name}`}
+                />
+              </S.CardHeader>
+              <S.Name>{robot.name}</S.Name>
+            </Link>
           </S.Card>
         ))}
       </S.Catalog>

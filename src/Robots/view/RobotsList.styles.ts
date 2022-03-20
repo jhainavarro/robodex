@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components/macro";
 import * as COLORS from "Shared/components/utils/colors";
 import { text } from "Shared/components/utils/mixins";
+import { default as SharedCard } from "Shared/components/card";
 
 export const Catalog = styled.div`
   width: clamp(800px, 90%, 1500px);
@@ -32,18 +33,14 @@ export const Name = styled.p`
   ${text("large", 600, COLORS.TEXT)};
 `;
 
-export const Card = styled(Link)`
+export const Card = styled(SharedCard)`
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 8px;
 
-  box-shadow: 0 4px 8px ${rgba("#000000", 0.35)};
-  transition: all 0.2s ease-in-out;
-
   :hover {
     transform: scale(1.05);
-    box-shadow: 0 12px 24px ${rgba("#000000", 0.24)};
     background: ${`linear-gradient(
       150deg,
       ${rgba(COLORS.BLUE_XLIGHT, 0.1)} 35%,

@@ -2,16 +2,17 @@ import styled from "styled-components/macro";
 import * as COLORS from "Shared/components/utils/colors";
 import TextField from "Shared/components/text-field";
 import Button from "Shared/components/button";
-import { rgba } from "polished";
+import Card from "Shared/components/card";
+
+export const Container = styled(Card)`
+  padding: 32px 64px;
+  margin: 0 auto;
+`;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 12px 24px ${rgba(COLORS.GRAY, 0.24)};
-  width: min-content;
-  padding: 32px 64px;
-  margin: 0 auto;
 `;
 
 export const Input = styled(TextField)``;
