@@ -1,4 +1,4 @@
-import { text } from "Shared/components/utils/mixins";
+import { gradientText, text } from "Shared/components/utils/mixins";
 import styled from "styled-components/macro";
 import * as COLORS from "Shared/components/utils/colors";
 import Button from "Shared/components/button";
@@ -35,10 +35,7 @@ export const Purpose = styled.p`
 `;
 
 export const GradientText = styled.span`
-  background: linear-gradient(90deg, #9c5ac8, #168ebc);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  ${gradientText("90deg", ["#9c5ac8 60%", "#168ebc"])};
 `;
 
 export const Actions = styled.div`

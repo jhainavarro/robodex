@@ -54,3 +54,18 @@ export function hideScrollbars() {
     }
   `;
 }
+
+/**
+ * Sets the color of the text to be a gradient with the given color stops
+ *
+ * @param angle direction or angle
+ * @param colorStops list of color strings with an optional stop along the gradient's axis
+ */
+export function gradientText(angle: string, colorStops: string[]) {
+  return css`
+    background: ${`linear-gradient(${angle}, ${colorStops.join(", ")})`};
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  `;
+}
