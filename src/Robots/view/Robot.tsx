@@ -22,23 +22,28 @@ export default function Robot() {
 
     return (
       <S.Container>
-        <S.Avatar src={robot.avatarUrl} alt={`Avatar of ${robot.name}`} />
-        <S.Greeting>{randomGreeting()}</S.Greeting>
-        <S.Name>
-          My name is <S.GradientText>{robot.name}</S.GradientText>
-        </S.Name>
-        <S.Purpose>
-          {randomPrefix()} <S.GradientText>{robot.purpose}</S.GradientText>
-        </S.Purpose>
+        <S.Header>
+          <S.Avatar src={robot.avatarUrl} alt={`Avatar of ${robot.name}`} />
+        </S.Header>
 
-        <S.Actions>
-          <S.Delete onClick={() => handleDelete(robot.guid)}>
-            Delete bot
-          </S.Delete>
-          <S.Edit onClick={() => navigate(`/edit/${robot.guid}`)}>
-            Edit bot
-          </S.Edit>
-        </S.Actions>
+        <S.Body>
+          <S.Greeting>{randomGreeting()}</S.Greeting>
+          <S.Name>
+            My name is <S.GradientText>{robot.name}</S.GradientText>
+          </S.Name>
+          <S.Purpose>
+            {randomPrefix()} <S.GradientText>{robot.purpose}</S.GradientText>
+          </S.Purpose>
+
+          <S.Actions>
+            <S.Delete onClick={() => handleDelete(robot.guid)}>
+              Delete bot
+            </S.Delete>
+            <S.Edit onClick={() => navigate(`/edit/${robot.guid}`)}>
+              Edit bot
+            </S.Edit>
+          </S.Actions>
+        </S.Body>
       </S.Container>
     );
   } catch {

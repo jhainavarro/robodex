@@ -5,6 +5,7 @@
 export const GRAY_XXXLIGHT = "#ffffff";
 export const GRAY_XXLIGHT = "#bebebe";
 export const GRAY_XLIGHT = "#7f7f7f";
+export const GRAY_LIGHT = "#565656";
 export const GRAY = "#333333";
 export const GRAY_XDARK = "#1d2030";
 export const GRAY_XXDARK = "#02091a";
