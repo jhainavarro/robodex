@@ -1,6 +1,6 @@
 import env from "env-var";
-import { useQuery, UseQueryResult } from "react-query";
-import { Robot } from "./robots.models";
+import { useMutation, useQuery, UseQueryResult } from "react-query";
+import { AddRobotInput, EditRobotInput, Robot } from "./robots.models";
 
 export const ROBOTS_KEY = "robots";
 
@@ -30,16 +30,6 @@ export function useRobots(): UseQueryResult<Robot[]> {
   return useQuery(ROBOTS_KEY, () => getRobots());
 }
 
-export function fetchRobot(guid: string): Robot {
-  const robot = fetchRobots().find((robot) => robot.guid === guid);
-
-  if (!robot) {
-    throw new Error(`Unable to find robot with guid: ${guid}`);
-  }
-
-  return robot;
-}
-
 /**
  * Gets a single robot from the Robodex
  */
@@ -49,49 +39,36 @@ export function useRobot(guid: string = ""): UseQueryResult<Robot | undefined> {
     return (await response.json()) as Robot[]; // FIXME: Typing
   };
 
-  return useQuery(ROBOTS_KEY, () => getRobot(guid));
+  return useQuery([ROBOTS_KEY, guid], () => getRobot(guid));
 }
 
-// Used the base `Robot` interface for simplicity
-// If we want to be more flexible, we can consider
-// enumerating the fields we want to accept as input
-type AddRobotInput = Omit<Robot, "guid">;
+/**
+ * Creates or edits a robot in the Robodex
+ */
+export function useSaveRobot() {
+  const add = async (robot: AddRobotInput) => {
+    const response = await fetch(`${ROBOTS_API}/robots`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(robot),
+    });
 
-export function addRobot(robot: AddRobotInput): Robot {
-  const list = fetchRobots();
-  const newRobot = {
-    guid: `${Date.now()}`,
-    ...robot,
+    return (await response.json()) as Robot; // FIXME: Typing
   };
 
-  list.push(newRobot);
-  window.localStorage.setItem(ROBOTS_KEY, JSON.stringify(list));
+  const edit = async (robot: EditRobotInput) => {
+    const response = await fetch(`${ROBOTS_API}/robots/${robot.guid}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(robot),
+    });
 
-  return newRobot;
-}
+    return (await response.json()) as Robot; // FIXME: Typing
+  };
 
-type EditRobotInput = Robot;
-
-export function editRobot(robot: EditRobotInput): Robot {
-  const list = fetchRobots();
-  const index = list.findIndex((r) => r.guid === robot.guid);
-
-  if (index === -1) {
-    throw new Error(`Unable to edit robot with guid: ${robot.guid}`);
-  }
-
-  list[index] = robot;
-  window.localStorage.setItem(ROBOTS_KEY, JSON.stringify(list));
-
-  return robot;
-}
-
-export function saveRobot(robot: AddRobotInput | EditRobotInput): Robot {
-  if ("guid" in robot) {
-    return editRobot(robot);
-  }
-
-  return addRobot(robot);
+  return useMutation((robot: AddRobotInput | EditRobotInput) =>
+    "guid" in robot ? edit(robot) : add(robot)
+  );
 }
 
 export function deleteRobot(guid: string): void {

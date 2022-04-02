@@ -8,16 +8,18 @@ import {
   getRandomAvatar,
 } from "./SaveRobot.helpers";
 import * as S from "./SaveRobot.styles";
-import { saveRobot } from "../robots.api";
 import { Robot } from "../robots.models";
 import { ReactComponent as RefreshIcon } from "Shared/icons/refresh.svg";
 import { useNavigate } from "react-router-dom";
+import { useSaveRobot } from "Robots/robots.api";
 
 interface SaveRobotProps {
   robot?: Robot;
 }
 
 export default function SaveRobot({ robot }: SaveRobotProps) {
+  // TODO: Loading state, error state
+  const { mutate: saveRobot } = useSaveRobot();
   const navigate = useNavigate();
   const [success, setSuccess] = useState<boolean | undefined>();
   const {
@@ -33,14 +35,16 @@ export default function SaveRobot({ robot }: SaveRobotProps) {
   });
 
   const onSubmit: SubmitHandler<SaveRobotFormData> = (data) => {
-    try {
-      const bot = robot ? { ...data, guid: robot.guid } : data;
+    const bot = robot ? { ...data, guid: robot.guid } : data;
 
-      saveRobot(bot);
-      setSuccess(true);
-    } catch {
-      setSuccess(false);
-    }
+    saveRobot(bot, {
+      onSuccess() {
+        setSuccess(true);
+      },
+      onError() {
+        setSuccess(false);
+      },
+    });
   };
 
   function handleReset(): void {
