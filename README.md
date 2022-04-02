@@ -2,7 +2,15 @@
 
 Catalog for your robots!
 
-Hands-on exercise built with React and Styled Components. No UI kits added for an extra challenge :P Great starter project when trying new tech stacks.
+---
+
+## Tech Stack / Libraries
+
+- TypeScript
+- React (create-react-app)
+- React Router
+- React Query
+- Styled Components
 
 ---
 
