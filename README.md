@@ -67,10 +67,8 @@ This is useful for seeing how the app will behave when deployed to our app serve
 
 ## To Do
 
-- [ ] API backend
 - [ ] Authentication
 - [ ] Linting
-- [ ] Extract common styled components into shared components
 - [ ] Component tests
 - [ ] Deployment pipeline
 - [ ] ...
