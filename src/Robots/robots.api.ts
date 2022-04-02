@@ -1,6 +1,10 @@
+import env from "env-var";
+import { useQuery, UseQueryResult } from "react-query";
 import { Robot } from "./robots.models";
 
 export const ROBOTS_KEY = "robots";
+
+const ROBOTS_API = env.get("REACT_APP_ROBOTS_API").required().asString();
 
 export function fetchRobots(): Robot[] {
   const stored = window.localStorage.getItem(ROBOTS_KEY);
@@ -11,6 +15,19 @@ export function fetchRobots(): Robot[] {
   }
 
   return robots;
+}
+
+/**
+ * @returns A list of robots from the Robodex
+ */
+export function useRobots(): UseQueryResult<Robot[]> {
+  // TODO: Replace `fetchRobots()` with this
+  const getRobots = async () => {
+    const response = await fetch(`${ROBOTS_API}/robots`);
+    return (await response.json()) as Robot[]; // FIXME: Typing
+  };
+
+  return useQuery(ROBOTS_KEY, () => getRobots());
 }
 
 export function fetchRobot(guid: string): Robot {

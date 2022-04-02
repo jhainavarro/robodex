@@ -1,33 +1,35 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { fetchRobots } from "../robots.api";
-import { Robot } from "../robots.models";
+import { useRobots } from "../robots.api";
 import * as S from "./RobotsList.styles";
 
 export default function RobotsList() {
-  const robots: Robot[] = fetchRobots();
+  const { data: robots, isLoading, isError } = useRobots();
 
-  if (robots.length > 0) {
-    return (
-      <S.Catalog>
-        {robots.map((robot) => (
-          <S.Card key={robot.guid}>
-            <Link to={`/${robot.guid}`}>
-              <S.CardHeader>
-                <S.Avatar
-                  src={robot.avatarUrl}
-                  alt={`Avatar of ${robot.name}`}
-                />
-              </S.CardHeader>
-              <S.Name>{robot.name}</S.Name>
-            </Link>
-          </S.Card>
-        ))}
-      </S.Catalog>
-    );
+  // FIXME: Design + test
+  if (isLoading || !robots) {
+    return <p>Loading...</p>;
   }
 
-  return (
+  // FIXME: Design + test
+  if (isError) {
+    return <p>Oops! Something happened. Please refresh the page.</p>;
+  }
+
+  return robots.length ? (
+    <S.Catalog>
+      {robots.map((robot) => (
+        <S.Card key={robot.guid}>
+          <Link to={`/${robot.guid}`}>
+            <S.CardHeader>
+              <S.Avatar src={robot.avatarUrl} alt={`Avatar of ${robot.name}`} />
+            </S.CardHeader>
+            <S.Name>{robot.name}</S.Name>
+          </Link>
+        </S.Card>
+      ))}
+    </S.Catalog>
+  ) : (
     <S.Empty>
       <S.EmptyImg src="https://robohash.org/empty" alt="No robots yet" />
       <S.EmptyText>No robots yet.</S.EmptyText>

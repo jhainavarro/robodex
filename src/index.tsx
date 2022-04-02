@@ -1,13 +1,20 @@
-import Routing from "App/Routing";
 import React from "react";
 import ReactDOM from "react-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import Routing from "App/Routing";
 import * as S from "./index.styles";
 import reportWebVitals from "./reportWebVitals";
 
+const queryClient = new QueryClient();
+
 ReactDOM.render(
   <React.StrictMode>
-    <S.GlobalStyle />
-    <Routing />
+    <QueryClientProvider client={queryClient}>
+      <S.GlobalStyle />
+      <Routing />
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
