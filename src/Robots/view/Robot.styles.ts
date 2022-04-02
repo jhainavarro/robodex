@@ -29,6 +29,7 @@ export const Avatar = styled.img`
 `;
 
 export const Body = styled.div`
+  width: 100%;
   padding: 32px 24px;
 `;
 
