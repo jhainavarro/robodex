@@ -40,6 +40,18 @@ export function fetchRobot(guid: string): Robot {
   return robot;
 }
 
+/**
+ * Gets a single robot from the Robodex
+ */
+export function useRobot(guid: string = ""): UseQueryResult<Robot | undefined> {
+  const getRobot = async (guid: string) => {
+    const response = await fetch(`${ROBOTS_API}/robots/${guid}`);
+    return (await response.json()) as Robot[]; // FIXME: Typing
+  };
+
+  return useQuery(ROBOTS_KEY, () => getRobot(guid));
+}
+
 // Used the base `Robot` interface for simplicity
 // If we want to be more flexible, we can consider
 // enumerating the fields we want to accept as input

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { deleteRobot, fetchRobot } from "../robots.api";
+import { deleteRobot, useRobot } from "../robots.api";
 import { randomGreeting, randomPrefix } from "./Robot.helpers";
 import * as S from "./Robot.styles";
 
@@ -8,18 +8,18 @@ export default function Robot() {
   const params = useParams();
   const navigate = useNavigate();
 
+  const { data: robot } = useRobot(params.guid);
+
   function handleDelete(guid: string): void {
     deleteRobot(guid); // TODO: Success, loading, error states
     navigate("/");
   }
 
-  if (!params.guid) {
+  if (!params.guid || !robot) {
     return <S.NotFound>Nothing to see here!</S.NotFound>;
   }
 
   try {
-    const robot = fetchRobot(params.guid);
-
     return (
       <S.Container>
         <S.Header>
