@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { fetchRobots } from "../robots.api";
-import { IRobot } from "../robots.models";
+import { Robot } from "../robots.models";
 import * as S from "./RobotsList.styles";
 
 export default function RobotsList() {
-  const robots: IRobot[] = fetchRobots();
+  const robots: Robot[] = fetchRobots();
 
   if (robots.length > 0) {
     return (

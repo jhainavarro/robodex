@@ -1,4 +1,4 @@
-export interface IRobot {
+export interface Robot {
   guid: string;
   name: string;
   purpose: string;

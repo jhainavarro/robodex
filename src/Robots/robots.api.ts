@@ -1,19 +1,19 @@
-import { IRobot } from "./robots.models";
+import { Robot } from "./robots.models";
 
 export const ROBOTS_KEY = "robots";
 
-export function fetchRobots(): IRobot[] {
+export function fetchRobots(): Robot[] {
   const stored = window.localStorage.getItem(ROBOTS_KEY);
-  let robots: IRobot[] = [];
+  let robots: Robot[] = [];
 
   if (stored) {
-    robots = JSON.parse(stored) as IRobot[]; // FIXME: Proper typing and transformation
+    robots = JSON.parse(stored) as Robot[]; // FIXME: Proper typing and transformation
   }
 
   return robots;
 }
 
-export function fetchRobot(guid: string): IRobot {
+export function fetchRobot(guid: string): Robot {
   const robot = fetchRobots().find((robot) => robot.guid === guid);
 
   if (!robot) {
@@ -23,12 +23,12 @@ export function fetchRobot(guid: string): IRobot {
   return robot;
 }
 
-// Used the base `IRobot` interface for simplicity
+// Used the base `Robot` interface for simplicity
 // If we want to be more flexible, we can consider
 // enumerating the fields we want to accept as input
-type AddRobotInput = Omit<IRobot, "guid">;
+type AddRobotInput = Omit<Robot, "guid">;
 
-export function addRobot(robot: AddRobotInput): IRobot {
+export function addRobot(robot: AddRobotInput): Robot {
   const list = fetchRobots();
   const newRobot = {
     guid: `${Date.now()}`,
@@ -41,9 +41,9 @@ export function addRobot(robot: AddRobotInput): IRobot {
   return newRobot;
 }
 
-type EditRobotInput = IRobot;
+type EditRobotInput = Robot;
 
-export function editRobot(robot: EditRobotInput): IRobot {
+export function editRobot(robot: EditRobotInput): Robot {
   const list = fetchRobots();
   const index = list.findIndex((r) => r.guid === robot.guid);
 
@@ -57,7 +57,7 @@ export function editRobot(robot: EditRobotInput): IRobot {
   return robot;
 }
 
-export function saveRobot(robot: AddRobotInput | EditRobotInput): IRobot {
+export function saveRobot(robot: AddRobotInput | EditRobotInput): Robot {
   if ("guid" in robot) {
     return editRobot(robot);
   }

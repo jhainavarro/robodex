@@ -9,12 +9,12 @@ import {
 } from "./SaveRobot.helpers";
 import * as S from "./SaveRobot.styles";
 import { saveRobot } from "../robots.api";
-import { IRobot } from "../robots.models";
+import { Robot } from "../robots.models";
 import { ReactComponent as RefreshIcon } from "Shared/icons/refresh.svg";
 import { useNavigate } from "react-router-dom";
 
 interface SaveRobotProps {
-  robot?: IRobot;
+  robot?: Robot;
 }
 
 export default function SaveRobot({ robot }: SaveRobotProps) {

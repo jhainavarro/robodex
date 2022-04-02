@@ -1,4 +1,4 @@
-import { IRobot } from "../robots.models";
+import { Robot } from "../robots.models";
 import * as yup from "yup";
 
 export type SaveRobotFormData = {
@@ -12,7 +12,7 @@ export const schema = yup.object().shape({
   purpose: yup.string().trim().required("Please give a purpose for your robot"),
 });
 
-export function getDefaultFormValues(robot?: IRobot): SaveRobotFormData {
+export function getDefaultFormValues(robot?: Robot): SaveRobotFormData {
   return {
     name: robot?.name ?? "",
     purpose: robot?.purpose ?? "",
